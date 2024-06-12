@@ -4,6 +4,7 @@ import pygad
 import matplotlib.pyplot as plt
 from funkcjeRobocze import wczytaniePlikuDoAlgGen
 from bitwa import walkaDlaAlgGen
+from ileWygranych import ileWygranych
 
 armies = wczytaniePlikuDoAlgGen()
 
@@ -18,23 +19,23 @@ def walki(t1, l, t2, s, t3, p):
         left = walkaDlaAlgGen(t1, army[0]) * l - army[1]
         right = walkaDlaAlgGen(t3, army[4]) * p - army[5]
         if left >= 0:
-            score += 100
+            score += 10
         else:
-            score -= 500
+            score -= 20
 
         if right >= 0:
-            score += 100
+            score += 10
         else:
-            score -= 500
+            score -= 20
 
         genArmy = [t2, walkaDlaAlgGen(t1, t2) * left * 1.25 + s + walkaDlaAlgGen(t3, t2) * right * 1.25]
         enemyArmy = [army[2], walkaDlaAlgGen(army[0], army[2]) * min(0, left) * 1.25 + army[3] + walkaDlaAlgGen(army[4], army[2]) * min(0, right) * 1.25]
 
         result = walkaDlaAlgGen(genArmy[0], enemyArmy[0]) * genArmy[1] - enemyArmy[1]
         if result >= 0:
-            score += 500 + result
+            score += 15 + result//100
         else:
-            score -= 500 + result
+            score -= 50 + result//100
 
     return score
 
@@ -88,21 +89,22 @@ def fitness_func(model, solution, solution_idx):
         money += p*2
 
     if money > moneyBudget:
-        return -100000
+        return -1000000
     else:
         return walki(t1, l, t2, s, t3, p)
 
 
-num_generations = 100
-num_parents_mating = 4
+num_generations = 30
+num_parents_mating = 8
 keep_parents = 2
 mutation_percent_genes = 18
-sol_per_pop = 10
+sol_per_pop = 20
 num_genes = 6
 
 initial_population = np.random.rand(sol_per_pop, num_genes)
 
-parent_selection_type = "rws"
+parent_selection_type = "tournament"
+crossover_type = "single_point"
 
 ga_instance = pygad.GA(num_generations=num_generations,
                        num_parents_mating=num_parents_mating,
@@ -113,6 +115,7 @@ ga_instance = pygad.GA(num_generations=num_generations,
                        gene_space=gene_space,
                        keep_parents=keep_parents,
                        parent_selection_type=parent_selection_type,
+                       crossover_type=crossover_type,
                        initial_population=initial_population,
                        mutation_percent_genes=mutation_percent_genes)
 
@@ -127,8 +130,32 @@ plt.plot(fitness_values)
 plt.xlabel('Generacja')
 plt.ylabel('Fitness')
 plt.grid()
-plt.yscale("log", base=10)
 plt.savefig("wykres.png")
+
+ileWygranych(solution)
 
 # Parameters of the best solution :  [1.         0.04210015 1.         0.4163792  1.         0.51083522]
 # Fitness value of the best solution = 2636793.375
+
+# Parameters of the best solution :  [0.         0.02328759 1.         0.1360393  0.         0.83905977]
+# Fitness value of the best solution = 493491.0
+# Na 5000 bitw
+# Lewe skrzydło wygralo: 136 2.7199999999999998%
+# Prawe skrzydło wygralo: 4996 99.92%
+# Cala bitwa zostala wygrana: 4686 93.72%
+
+# Parameters of the best solution :  [1.         0.         1.         0.53089774 0.         0.42315896]
+# Fitness value of the best solution = 383449.0
+# 953.0
+# Na 5000 bitw
+# Lewe skrzydło wygralo: 0 0.0%
+# Prawe skrzydło wygralo: 4579 91.58%
+# Cala bitwa zostala wygrana: 4888 97.76%
+
+# Parameters of the best solution :  [1.         0.05062759 1.         0.55042416 1.         0.32284224]
+# Fitness value of the best solution = 128451.0
+# Wykorzystany budżet: 922.0
+# Na 5000 bitw
+# Lewe skrzydło wygralo: 312 6.239999999999999%
+# Prawe skrzydło wygralo: 4239 84.78%
+# Cala bitwa zostala wygrana: 4844 96.88%
