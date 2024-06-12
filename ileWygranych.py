@@ -5,27 +5,28 @@ from bitwa import walkaDlaAlgGen
 def ileWygranych(army):
     t1, l, t2, s, t3, p = army
     money = 0
-    if t1 / 3 <= 1 / 3:
+    if t1 <= 1 / 3:
         t1 = 1
-    elif t1 / 3 <= 2 / 3:
+    elif t1 <= 2 / 3:
         t1 = 2
     else:
         t1 = 3
 
-    if t2 / 3 <= 1 / 3:
+    if t2 <= 1 / 3:
         t2 = 1
-    elif t2 / 3 <= 2 / 3:
+    elif t2 <= 2 / 3:
         t2 = 2
     else:
         t2 = 3
 
-    if t3 / 3 <= 1 / 3:
+    if t3 <= 1 / 3:
         t3 = 1
-    elif t3 / 3 <= 2 / 3:
+    elif t3 <= 2 / 3:
         t3 = 2
     else:
         t3 = 3
 
+    # print(t1, t2, t3)
     l = l * 1000 // 1
     s = s * 1000 // 1
     p = p * 1000 // 1
