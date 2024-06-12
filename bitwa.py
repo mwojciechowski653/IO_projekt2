@@ -49,24 +49,24 @@ def walka(a, b):
 
 
 def walkaDlaAlgGen(a, b):
-    if a[0] == 1:
-        if b[0] == 1:
+    if a == 1:
+        if b == 1:
             mnoznik = 1.0
-        elif b[0] == 2:
+        elif b == 2:
             mnoznik = 0.5
         else:
             mnoznik = 0.5
-    elif a[0] == 2:
-        if b[0] == 1:
+    elif a == 2:
+        if b == 1:
             mnoznik = 2.0
-        elif b[0] == 2:
+        elif b == 2:
             mnoznik = 1
         else:
             mnoznik = 1.5
     else:
-        if b[0] == 1:
+        if b == 1:
             mnoznik = 2.0
-        elif b[0] == 2:
+        elif b == 2:
             mnoznik = 0.75
         else:
             mnoznik = 1.0
