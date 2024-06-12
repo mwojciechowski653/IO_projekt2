@@ -48,6 +48,31 @@ def walka(a, b):
     return mnoznik
 
 
+def walkaDlaAlgGen(a, b):
+    if a[0] == 1:
+        if b[0] == 1:
+            mnoznik = 1.0
+        elif b[0] == 2:
+            mnoznik = 0.5
+        else:
+            mnoznik = 0.5
+    elif a[0] == 2:
+        if b[0] == 1:
+            mnoznik = 2.0
+        elif b[0] == 2:
+            mnoznik = 1
+        else:
+            mnoznik = 1.5
+    else:
+        if b[0] == 1:
+            mnoznik = 2.0
+        elif b[0] == 2:
+            mnoznik = 0.75
+        else:
+            mnoznik = 1.0
+    return mnoznik
+
+
 def zwiad(budzet, zwiady, armia_przeciwnika):
     print("Możesz wydać 100 monet aby wysłać zwiad i dowiedzieć się jak wygląda jedno ze skrzydeł wroga (lub wiecej skrzydel 100monet = 1zwiad)")
     print("Czy chcesz to zrobić? (od 1 do 3) - Tak, podaj ile skrzydeł chcesz sprawdzić, 0 - Nie")
@@ -86,7 +111,7 @@ def zwiad(budzet, zwiady, armia_przeciwnika):
     except ValueError:
         print("Podales inny typ danych niz liczba")
         return
-    
+
     return budzet, zwiady
 
 
