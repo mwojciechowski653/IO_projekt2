@@ -1,16 +1,10 @@
-import statistics
-
 import pandas as pd
-from sklearn.decomposition import PCA
 
-
-def wczytaniePliku():
-    df = pd.read_csv("./rozgrywki.txt")
+def wczytaniePlikuDoAlgGen():
+    df = pd.read_csv("./rozgrywkiSamWrog.txt")
     # print(df)
 
-    all_inputs = df[['typL', 'liczbaL', 'typS', 'liczbS', 'typP', 'liczbaP', 'typWrogaL', 'liczbaWrogaL', 'typWrogaS',
-                     'liczbWrogaS', 'typWrogaP', 'liczbaWrogaP']].values
-    all_classes = df['wygrana'].values
+    all_inputs = df[['typL', 'liczbaL', 'typS', 'liczbS', 'typP', 'liczbaP']].values
 
     for i in range(len(all_inputs)):
         for j in range(len(all_inputs[i])):
@@ -21,4 +15,5 @@ def wczytaniePliku():
                 all_inputs[i][j] = 2
             elif elem == "piechurzy":
                 all_inputs[i][j] = 1
-    return all_inputs, all_classes
+    return all_inputs
+

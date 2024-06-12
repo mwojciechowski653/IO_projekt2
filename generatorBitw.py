@@ -46,4 +46,21 @@ def bitwy(ilosc):
         wyniki.write(wynik)
     wyniki.close()
 
-    print("Dodano:", ilosc, "rekordkow")
+    print("Dodano:", ilosc, "rekordow zawierajacych bitwy")
+
+
+def bitwySamWrog(ilosc):
+    wynikiDoZapisu = []
+    for i in range(ilosc):
+        armia = losowanie_armii(1000)
+        doZapisu = [armia[0][0], armia[0][1], armia[1][0], armia[1][1], armia[2][0], armia[2][1]]
+
+        wynikiDoZapisu.append(
+            str(doZapisu[0]) + "," + str(doZapisu[1]) + "," + str(doZapisu[2]) + "," + str(doZapisu[3]) + "," + str(doZapisu[4]) + "," + str(doZapisu[5]))
+    wyniki = open('rozgrywkiSamWrog.txt', 'a+')
+    for wynik in wynikiDoZapisu:
+        wyniki.write("\n")
+        wyniki.write(wynik)
+    wyniki.close()
+
+    print("Dodano:", ilosc, "rekordow zawierajacych same armie wroga")
