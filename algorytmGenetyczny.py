@@ -134,48 +134,16 @@ plt.savefig("./wykresy/wykres.png")
 
 ileWygranych(solution)
 
-# WYKRES 3
-# Parameters of the best solution :  [0.34147156 0.37038776 1.         0.         0.         0.41857535]
-# Fitness value of the best solution = 3949277.0
-# Wykorzystany budżet: 973.0
-# Na 5000 bitw
-# Lewe skrzydło wygralo: 4617 92.34%
-# Prawe skrzydło wygralo: 4575 91.5%
-# Cala bitwa zostala wygrana: 4984 99.68%
-# ileWygranych((0.5, 0.384, 1, 0, 0, 0.424))
-# Wykorzystany budżet: 1000.0
-# Na 5000 bitw
-# Lewe skrzydło wygralo: 4675 93.5%
-# Prawe skrzydło wygralo: 4586 91.72%
-# Cala bitwa zostala wygrana: 4993 99.86%
-# ileWygranych((0.5, 0.4, 1, 0, 0, 0.400))
-# Wykorzystany budżet: 1000.0
-# Na 5000 bitw
-# Lewe skrzydło wygralo: 4712 94.24%
-# Prawe skrzydło wygralo: 4523 90.46%
-# Cala bitwa zostala wygrana: 4998 99.96000000000001%
-# ileWygranych((0.5, 0.42, 1, 0, 0, 0.370))
-# Wykorzystany budżet: 1000.0
-# Na 5000 bitw
-# Lewe skrzydło wygralo: 4767 95.34%
-# Prawe skrzydło wygralo: 4435 88.7%
-# Cala bitwa zostala wygrana: 5000 100.0%
-# ileWygranych((0.5, 0.41, 1, 0, 0, 0.385))
-# Wykorzystany budżet: 1000.0
-# Na 5000 bitw
-# Lewe skrzydło wygralo: 4741 94.82000000000001%
-# Prawe skrzydło wygralo: 4491 89.82%
-# Cala bitwa zostala wygrana: 5000 100.0%
-
 # NAJLEPSZE
 # ileWygranych((0.5, 0.406, 1, 0, 0, 0.391))
+# [0.5 0.406 1. 0. 0. 0.391]
 # Wykorzystany budżet: 1000.0
 # Na 5000 bitw
 # Lewe skrzydło wygralo: 4728 94.56%
 # Prawe skrzydło wygralo: 4505 90.10000000000001%
 # Cala bitwa zostala wygrana: 5000 100.0%
 
-# WYKRES 1
+# Najlepsze rozwiązanie z WYKRES 1
 # Parameters of the best solution :  [1.         0.14637148 1.         0.16492514 0.52171113 0.22048858]
 # Fitness value of the best solution = 3107069.0
 # Wykorzystany budżet: 950.0
@@ -184,7 +152,7 @@ ileWygranych(solution)
 # Prawe skrzydło wygralo: 4784 95.67999999999999%
 # Cala bitwa zostala wygrana: 4990 99.8%
 
-# WYKRES 2
+# Najlepsze rozwiązania z WYKRES 2
 # Parameters of the best solution :  [0.         0.0492478  0.66010416 0.36915246 1.         0.19456259]
 # Fitness value of the best solution = 2604570.0
 # Wykorzystany budżet: 990.5
